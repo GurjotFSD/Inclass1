@@ -30,6 +30,11 @@ public class CardTrick {
             hand[i] = card;
         }
         
+        System.out.println("All 7 cards:");
+        for (Card card : hand) {
+            System.out.println(card.getSuit() + ' ' + card.getValue());
+        }
+        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pick a card:");
         System.out.print("Enter value (1-13): ");
