@@ -4,29 +4,71 @@
  */
 package card;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
- * A class that fills a magic hand of 7 cards with random Card Objects
- * and then asks the user to pick a card and searches the array of cards
- * for the match to the user's card. To be used as starting code in ICE 1
- * @author srinivsi
+ * A class that models a hand of 7 cards with random Card objects and allows the user to pick a card.
+ * It then searches the array of cards for the match to the user's card.
+ * To be used as starting code in Exercise.
+ *
+ * @author GURJOT SINGH
+ * @version 1.0
+ * @studentID 991709790
  */
 public class CardTrick {
-    
-    public static void main(String[] args)
-    {
-        Card[] magicHand = new Card[7];
-        
-        for (int i=0; i<magicHand.length; i++)
-        {
-            Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+
+    public static void main(String[] args) {
+
+        Card[] hand = new Card[7];
+
+        for (int i = 0; i < hand.length; i++) {
+            Card card = new Card();
+            Random random = new Random();
+            card.setValue(random.nextInt(13) + 1); 
+            card.setSuit(Card.SUITS[random.nextInt(4)]);
+            hand[i] = card;
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
-        // add one luckcard hard code 2,clubs
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Pick a card:");
+        System.out.print("Enter value (1-13): ");
+        int userValue = scanner.nextInt();
+        System.out.print("Enter suit (1-4): ");
+        String userSuit = scanner.next();
+
+        boolean match = false;
+        for (Card card : hand) {
+            if (card.getValue() == userValue) 
+            {
+                if (card.getSuit().equals(userSuit)) 
+                {
+                    match = true;
+                    break;
+                }
+            }
+        }
+
+        if (match) {
+            printInfo();
+        } else {
+            System.out.println("Sorry, your card is not in the magic hand.");
+        }
     }
-    
+    private static void printInfo() {
+        System.out.println("Congratulations, you guessed right!");
+        System.out.println();
+
+        System.out.println("My name is Your Name");
+        System.out.println();
+
+        System.out.println("My career ambitions:");
+        System.out.println("-- Replace with your career ambitions");
+
+        System.out.println("My hobbies:");
+        System.out.println("-- Replace with your hobbies");
+
+        System.out.println();
+    }
 }
+
