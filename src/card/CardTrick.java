@@ -36,8 +36,8 @@ public class CardTrick {
         }
         
         Card luckyCard = new Card();
-        luckyCard.setValue(7); // Example value
-        luckyCard.setSuit(Card.SUITS[2]); // Example suit (Diamonds)
+        luckyCard.setValue(7);
+        luckyCard.setSuit(Card.SUITS[2]);
 
 
 
