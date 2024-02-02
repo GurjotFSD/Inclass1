@@ -35,45 +35,26 @@ public class CardTrick {
             System.out.println(card.getSuit() + ' ' + card.getValue());
         }
         
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Pick a card:");
-        System.out.print("Enter value (1-13): ");
-        int userValue = scanner.nextInt();
-        System.out.print("Enter suit (1-4): ");
-        String userSuit = scanner.next();
+        Card luckyCard = new Card();
+        luckyCard.setValue(7); // Example value
+        luckyCard.setSuit(Card.SUITS[2]); // Example suit (Diamonds)
+
+
 
         boolean match = false;
         for (Card card : hand) {
-            if (card.getValue() == userValue) 
-            {
-                if (card.getSuit().equals(userSuit)) 
-                {
-                    match = true;
-                    break;
-                }
+            if (card.getValue() == luckyCard.getValue() && card.getSuit() == luckyCard.getSuit()) {
+                match = true;
+                break;
             }
         }
 
         if (match) {
-            printInfo();
+            System.out.println("Congratulations! You found the lucky card!");
         } else {
             System.out.println("Sorry, your card is not in the magic hand.");
         }
     }
-    private static void printInfo() {
-        System.out.println("Congratulations, you guessed right!");
-        System.out.println();
-
-        System.out.println("My name is Your Name");
-        System.out.println();
-
-        System.out.println("My career ambitions:");
-        System.out.println("-- Replace with your career ambitions");
-
-        System.out.println("My hobbies:");
-        System.out.println("-- Replace with your hobbies");
-
-        System.out.println();
-    }
+    
 }
 
